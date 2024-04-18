@@ -1,0 +1,15 @@
+[Unit]
+Description=Memory ballooning for libvirt VMs
+After=libvirt-guests.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/usr/local/sbin/vm-balloon.py
+LogNamespace=libvirt-balloon
+
+[Install]
+WantedBy=multi-user.target

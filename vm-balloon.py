@@ -31,13 +31,6 @@ except libvirt.libvirtError:
     sys.exit(1)
 
 
-def mytest():
-    dom0 = conn.lookupByName("blubb")
-    dom0.state()
-    dom0.maxMemory
-
-
-
 while True:
     
     print(f'------------------ {datetime.now()}')

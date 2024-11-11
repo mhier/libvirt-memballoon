@@ -30,6 +30,7 @@ except libvirt.libvirtError:
     print('Failed to open connection to the hypervisor')
     sys.exit(1)
 
+vmConfigured = {}
 
 while True:
     
@@ -41,7 +42,12 @@ while True:
     
     for idx, dom in enumerate(domains) :
         if(dom.state()[0] != libvirt.VIR_DOMAIN_RUNNING) :
+            vmConfigured[dom.name()] = False
             continue
+
+        if dom.name() not in vmConfigured or not vmConfigured[dom.name()]:
+            dom.setMemoryStatsPeriod(1)
+            vmConfigured[dom.name()] = True
         
         dom_free_mem_target = max(free_mem_per_core_target * dom.maxVcpus(), free_mem_target)
         

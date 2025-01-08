@@ -20,7 +20,7 @@ max_total_mem = total_phys_mem - 4*GB
 free_mem_target = 4*GB
 
 # Free memory to aim for in a single VM (per core)
-free_mem_per_core_target = 256*MB
+free_mem_per_core_target = 384*MB
 
 
 # Open connection to Hypervisor

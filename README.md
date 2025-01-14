@@ -1,3 +1,6 @@
 ## Installation
 
-Symlinked `vm-balloon.py` to `/usr/local/sbin`, `vm-balloon.service` to `/etc/systemd/system` and `journald@libvirt-balloon.conf` to `/etc/systemd`.
+- Checkout to /opt/libvirt-memballoon
+- Symlink `vm-balloon.service` to `/etc/systemd/system` and `journald@libvirt-balloon.conf` to `/etc/systemd`.
+- systemctl daemon-reload
+- systemctl enable vm-balloon
